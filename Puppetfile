@@ -4,7 +4,12 @@ forge "http://forge.puppetlabs.com"
 mod "zack/r10k", '1.0.2'
 
 # Deps for zack/r10k
-mod "puppetlabs/stdlib", '3.2.1'
+# We are tracking stdlib from git because the puppet module tool 
+# is getting in the way when we want to upgrade newer than the 
+# supported module version
+mod "stdlib", :git => 'git@github.com:puppetlabs/puppetlabs-stdlib.git',
+  :ref => '4.1.0'
+
 mod "puppetlabs/ruby", '0.1.0'
 mod "puppetlabs/gcc", '0.1.0'
 mod "puppetlabs/pe_gem", '0.0.1'
@@ -20,3 +25,18 @@ mod "puppetlabs/ntp", '3.0.3'
 mod 'reidmv/yamlfile'
 # Needed by `yamlfile`
 mod 'adrien/filemapper'
+
+mod 'garethr/docker', '0.13.0'
+
+# Deps for docker
+mod 'puppetlabs/apt', '1.4.2'
+mod 'stahnma/epel', '0.0.6'
+
+# Needed for managing our accounts in hiera, this fork contains the pull
+# request which adds support for multiple SSH keys:
+# <https://github.com/torrancew/puppet-account/pull/18>
+mod 'account', :git => 'git://github.com/jenkins-infra/puppet-account.git',
+               :ref => '03280b8'
+
+mod 'jenkins_keys',
+  :git => 'git@github.com:rtyler/jenkins-keys.git'
