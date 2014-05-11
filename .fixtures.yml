@@ -26,6 +26,8 @@ fixtures:
       ref: '9c5be9b'
     apache-logcompressor:
       repo: 'git://github.com/jenkins-infra/puppet-apache-logcompressor.git'
+    bind:
+      repo: 'git://github.com/b2jrock/puppet-bind.git'
 
   forge_modules:
     stdlib:
